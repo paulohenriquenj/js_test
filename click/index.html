@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click view</title>
+    <style>
+        #root {
+            position: absolute; 
+            width: 100%; 
+            height: 100%;
+            top: 0; 
+            left: 0;
+            border: 1px solid red;
+        }
+
+        #child {
+            width: 10px;
+            height: 10px;
+            color: black;
+            background-color: black;
+            top: 10;
+            left: 10;
+            z-index: 3333;
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <div id="child"></div>
+    </div>
+</body>
+
+<script src="jquery-3.6.0.min.js"></script>
+
+<script>
+$( document ).ready(function() {
+    $('#root').on('click', function (event) {
+        const el = $('#child');
+        el.css({'margin-left': event.clientX  + 'px'});
+        el.css({'margin-top': event.clientY  + 'px'});
+    });
+
+});
+</script>
+</html>
